@@ -6,8 +6,9 @@ export const config = {
     name: process.env.DB_NAME || 'products_db',
     password: process.env.DB_PASSWORD,
     user: process.env.DB_USER,
+    authSource: process.env.DB_AUTH_SOURCE || 'admin',
     get url() {
-      return `mongodb://${this.user}:${this.password}@${this.host}:${this.port}/${this.name}?authSource=admin`
+      return `mongodb://${this.user}:${this.password}@${this.host}:${this.port}/${this.name}?authSource=${this.authSource}`
     }
   }
 } 
